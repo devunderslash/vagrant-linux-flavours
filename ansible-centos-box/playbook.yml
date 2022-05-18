@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: yes
+
+  tasks: 
+  - name: Ensure httpd is installed
+    yum: 
+      name: httpd
+      state: present
+  
+  - name: Ensure httpd is running.
+    service: 
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: Ensure python 3.9 is installed
+    yum: 
+      name: python3.9
+      state: present
+
+  - name: Ensure python 3.9 is running.
+    service: 
+      name: python3.9
+      state: started
+      enabled: yes
